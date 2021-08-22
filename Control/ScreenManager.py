@@ -9,3 +9,4 @@ class Screens(ScreenManager):
         super().__init__(**kwargs)
 
         LoginScreen()
+        print('teste')
