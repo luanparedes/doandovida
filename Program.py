@@ -1,7 +1,11 @@
-from Control.ScreenManager import Screens
+from Presenter.LoginScreen import LoginScreen
 from kivy.app import App
-from View.LoginScreen import LoginScreen
-from View.MainScreen import MainScreen
+from kivy.lang import Builder
+
+
+#Register KV files
+Builder.load_file('View\\MainScreen.kv')
+Builder.load_file('View\\LoginScreen.kv')
 
 
 class MainProgram(App):
