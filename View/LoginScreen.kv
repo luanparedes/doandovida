@@ -1,0 +1,56 @@
+<LoginScreen>
+	BoxLayout:
+		orientation: 'vertical'
+		
+		canvas.before:
+			Color:
+				rgb: (250/255,128/255,114/255)
+			
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		
+		BoxLayout:
+			Image:
+				source: 'Assets\\logo.png'
+		
+		AnchorLayout:	
+			GridLayout:
+				rows: 4
+				cols: 1
+				size_hint: 0.5, 0.5
+				anchor_y: 'center'
+				anchor_x: 'center'
+				
+				BoxLayout:	
+					GridLayout:
+						cols: 2
+						size_hint: 0.6, 0.8
+						Label:
+							text: 'Login'
+							size_hint: 1.5, 0.5		
+						TextInput:
+							size_hint: 1.8, 0.7
+				
+				BoxLayout:	
+					GridLayout:
+						cols: 2
+						size_hint: 0.6, 0.8
+						Label:
+							id: label_pass
+							text: 'Password'
+							size_hint: 1.5, 0.5
+						
+						TextInput:
+							size_hint: 1.8, 0.7
+				
+				AnchorLayout:
+					anchor_x: 'center'
+					anchor_y: 'center'
+					Button:
+						text: 'Enter'
+						size_hint: 0.3, 0.7
+						
+				BoxLayout:
+					Label:
+						text: 'New user? Click here!'
