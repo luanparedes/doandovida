@@ -1,4 +1,4 @@
-from Presenter.LoginScreen import LoginScreen
+from Presenter.ScreenManagement import ScreenManagement
 from kivy.app import App
 from kivy.lang import Builder
 
@@ -6,11 +6,12 @@ from kivy.lang import Builder
 #Register KV files
 Builder.load_file('View\\MainScreen.kv')
 Builder.load_file('View\\LoginScreen.kv')
+Builder.load_file('View\\CreateUser.kv')
 
 
 class MainProgram(App):
     def build(self):
-        return LoginScreen()
+        return ScreenManagement()
 
 
 if __name__ == '__main__':

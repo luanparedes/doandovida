@@ -10,3 +10,10 @@ class BloodType(Enum):
     ab_negative = 5
     o_positive = 6
     o_negative = 7
+
+
+class Screens(Enum):
+    login = 'login'
+    newuser = 'newuser'
+    main = 'main'
+    settings = 'settings'
