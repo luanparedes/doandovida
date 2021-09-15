@@ -4,10 +4,10 @@ from kivy.lang import Builder
 
 
 #Register KV files
-Builder.load_file('View\\MainScreen.kv')
-Builder.load_file('View\\LoginScreen.kv')
-Builder.load_file('View\\CreateUser.kv')
-Builder.load_file('View\\Settings.kv')
+Builder.load_file('View/MainScreen.kv')
+Builder.load_file('View/LoginScreen.kv')
+Builder.load_file('View/CreateUser.kv')
+Builder.load_file('View/Settings.kv')
 
 
 class MainProgram(MDApp):
