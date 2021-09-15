@@ -6,3 +6,6 @@ class CreateUser(Screen):
     def __init__(self):
         super(CreateUser, self).__init__()
         self.name = 'newuser'
+
+    def to_login_screen(self):
+        self.parent.screen = 'login'
