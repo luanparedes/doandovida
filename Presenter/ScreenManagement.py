@@ -3,7 +3,7 @@ from Presenter.MainScreen import MainScreen
 from Presenter.CreateUser import CreateUser
 from Presenter.Settings import Settings
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ObjectProperty
 
 
 class ScreenManagement(ScreenManager):
@@ -34,5 +34,6 @@ class ScreenManagement(ScreenManager):
 
     # Actions
     def action_swipe_screen(self, obj, value):
+        print(self.screen)
         self.current = value
 

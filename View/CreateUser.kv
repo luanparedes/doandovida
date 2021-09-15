@@ -1,6 +1,137 @@
 <CreateUser>
     BoxLayout:
-        Button:
-            id: btn_back
-            text: 'TESTE!'
-            on_touch_down: app.root.back_screen()
+        canvas.before:
+            Color:
+                rgb: (0,0,0)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        FloatLayout:
+            Label:
+                text: 'CADASTRO DE USUÁRIO'
+                font_size: 22
+                pos_hint: {'center_x':.5, 'center_y':.93}
+            Button:
+                text: 'CADASTRAR'
+                font_size: 8
+                size_hint: .15,.07
+                pos_hint: {'center_x':.5, 'center_y':.05}
+            ScrollView:
+                pos_hint: {'center_x':.5, 'center_y':.50}
+                size_hint_x: .35
+                size_hint_y: .70
+                GridLayout:
+                    rows: 18
+                    size_hint: 1, None
+                    spacing: 17
+                    height: self.minimum_height
+                    width: self.minimum_width
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "E-mail"
+                        helper_text: "Digite aqui o seu endereço de e-mail"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Senha"
+                        helper_text: "Digite aqui a sua senha"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Confirme sua senha"
+                        helper_text: "Digite novamente a sua senha"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Nome"
+                        helper_text: "Digite aqui o seu nome completo"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "CPF"
+                        helper_text: "Digite aqui o seu CPF"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "RG"
+                        helper_text: "Digite aqui o seu RG"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Endereço: CEP"
+                        helper_text: "Digite aqui o CEP de sua residência"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Endereço: Bairro"
+                        helper_text: "Digite aqui o bairro onde mora"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Endereço: Rua"
+                        helper_text: "Digite aqui a rua onde mora"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Endereço: Número"
+                        helper_text: "Digite aqui o número de sua residência"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Endereço: Complemento"
+                        helper_text: "Complemento: ex(ao lado da igreja)"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Endereço: Cidade"
+                        helper_text: "Digite aqui a cidade onde mora"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Endereço: Estado"
+                        helper_text: "Digite aqui a sigla do estado onde mora"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Telefone"
+                        helper_text: "Digite aqui o número de telefone fixo"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Celular"
+                        helper_text: "Digite aqui o número de celular"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Altura"
+                        helper_text: "Digite aqui a sua altura"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Peso"
+                        helper_text: "Digite aqui o seu peso mais recente"
+                        helper_text_mode: "persistent"
+
+                    MDTextField:
+                        size_hint: 1, None
+                        hint_text: "Tipo sanguineo"
+                        helper_text: "Digite aqui o seu tipo sanguíneo"
+                        helper_text_mode: "persistent"
