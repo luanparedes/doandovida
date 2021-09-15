@@ -1,12 +1,8 @@
 <MainScreen>
-	BoxLayout:
-		orientation: 'vertical'
-		padding: 20
-		
-		Button:
-			text: 'teste'
-			on_press: root.change_text()
-		
-		Label:
-			id: id_test
-			text: 'Hello World'
+	FloatLayout:
+	    id: mapbox
+
+	    MDToolbar:
+	        size_hint: 1, .07
+	        pos_hint: {'center_x': .5, 'center_y': .97}
+	        title: 'Doando Vida'
