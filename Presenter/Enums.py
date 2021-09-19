@@ -17,3 +17,18 @@ class Screens(Enum):
     newuser = 'newuser'
     main = 'main'
     settings = 'settings'
+
+
+class OS(Enum):
+    android = 'Android'
+    ios = 'iOS'
+    windows = 'Windows'
+    linux = 'Linux'
+    os_x = 'OS X'
+
+
+class MarkMap(Enum):
+    hospital = 'Assets/bloodcenter.png'
+    person = 'Assets/mapview_location.png'
+    house = 'Assets/house.png'
+    emergency = 'Assets/warning.png'

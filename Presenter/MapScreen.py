@@ -7,5 +7,3 @@ class MapScreen(Screen):
         super(MapScreen, self).__init__()
 
         self.name = 'map'
-
-        CustomMap()

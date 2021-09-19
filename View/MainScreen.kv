@@ -10,4 +10,12 @@
             left_action_items: [["menu", lambda x: viewmodel.open_menu()]]
 	BoxLayout:
 	    id: mapbox
-	    size_hint: 1, 1
+	    size_hint: 1, .92
+
+<CustomMap>
+    id: viewmodel
+    MDIconButton:
+        id: size_map
+        icon: 'Assets/close.png'
+        pos_hint: {'center_x':.1, 'center_y':.1}
+        on_press: viewmodel.maximize_map()
