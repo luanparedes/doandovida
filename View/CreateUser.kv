@@ -18,6 +18,7 @@
             font_size: 8
             size_hint: .70,.07
             pos_hint: {'center_x':.5, 'center_y':.05}
+            on_release: viewmodel.create_user_action()
         MDIconButton:
             text: 'Back'
             icon: 'arrow-left-bold-circle'
@@ -35,91 +36,109 @@
                 height: self.minimum_height
                 width: self.minimum_width
                 MDTextField:
+                    id: email
                     size_hint: 1, None
                     hint_text: "E-mail"
                     helper_text: "Digite aqui o seu endereço de e-mail"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: password
                     size_hint: 1, None
                     hint_text: "Senha"
                     helper_text: "Digite aqui a sua senha"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: confirm
                     size_hint: 1, None
                     hint_text: "Confirme sua senha"
                     helper_text: "Digite novamente a sua senha"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: name
                     size_hint: 1, None
                     hint_text: "Nome"
                     helper_text: "Digite aqui o seu nome completo"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: cpf
                     size_hint: 1, None
                     hint_text: "CPF"
                     helper_text: "Digite aqui o seu CPF"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: rg
                     size_hint: 1, None
                     hint_text: "RG"
                     helper_text: "Digite aqui o seu RG"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: cep
                     size_hint: 1, None
                     hint_text: "Endereço: CEP"
                     helper_text: "Digite aqui o CEP de sua residência"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: neighborhood
                     size_hint: 1, None
                     hint_text: "Endereço: Bairro"
                     helper_text: "Digite aqui o bairro onde mora"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: rua
                     size_hint: 1, None
                     hint_text: "Endereço: Rua"
                     helper_text: "Digite aqui a rua onde mora"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: number
                     size_hint: 1, None
                     hint_text: "Endereço: Número"
                     helper_text: "Digite aqui o número de sua residência"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: complement
                     size_hint: 1, None
                     hint_text: "Endereço: Complemento"
                     helper_text: "Complemento: ex(ao lado da igreja)"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: city
                     size_hint: 1, None
                     hint_text: "Endereço: Cidade"
                     helper_text: "Digite aqui a cidade onde mora"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: estate
                     size_hint: 1, None
                     hint_text: "Endereço: Estado"
                     helper_text: "Digite aqui a sigla do estado onde mora"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: tel
                     size_hint: 1, None
                     hint_text: "Telefone"
                     helper_text: "Digite aqui o número de telefone fixo"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: cel
                     size_hint: 1, None
                     hint_text: "Celular"
                     helper_text: "Digite aqui o número de celular"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: myheight
                     size_hint: 1, None
                     hint_text: "Altura"
                     helper_text: "Digite aqui a sua altura"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: myweight
                     size_hint: 1, None
                     hint_text: "Peso"
                     helper_text: "Digite aqui o seu peso mais recente"
                     helper_text_mode: "persistent"
                 MDTextField:
+                    id: blood
                     size_hint: 1, None
                     hint_text: "Tipo sanguineo"
                     helper_text: "Digite aqui o seu tipo sanguíneo"

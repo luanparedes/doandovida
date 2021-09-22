@@ -2,6 +2,7 @@ from Presenter.LoginScreen import LoginScreen
 from Presenter.MainScreen import MainScreen
 from Presenter.CreateUser import CreateUser
 from Presenter.Settings import Settings
+from Presenter.MapScreen import MapScreen
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
 from kivy.properties import StringProperty, ObjectProperty
 
@@ -19,12 +20,14 @@ class ScreenManagement(ScreenManager):
         self.user_screen = CreateUser()
         self.main_screen = MainScreen()
         self.settings_screen = Settings()
+        self.map_screen = MapScreen()
 
         # Adding screens at screen manager
         self.add_widget(self.login_screen)
         self.add_widget(self.user_screen)
         self.add_widget(self.main_screen)
         self.add_widget(self.settings_screen)
+        self.add_widget(self.map_screen)
 
         self.before_screen = ''
 

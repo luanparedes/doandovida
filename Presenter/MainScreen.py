@@ -28,7 +28,7 @@ class MainScreen(Screen):
         self.size_hint = (1, .37)
 
         self.mark = MapMarker(lat=self.location.latitude, lon=self.location.longitude)
-        self.mark.source = 'Assets/mapview_location_2.png'
+        self.mark.source = 'Assets/mapview_location.png'
 
         self.map.add_marker(self.mark)
 

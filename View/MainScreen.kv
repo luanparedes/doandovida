@@ -10,4 +10,21 @@
             left_action_items: [["menu", lambda x: viewmodel.open_menu()]]
 	BoxLayout:
 	    id: mapbox
-	    size_hint: 1, 1
+	    size_hint: 1, .92
+
+<CustomMap>
+    id: viewmodel
+    FloatLayout:
+        TooltipMDIconButton:
+            id: size_map
+            icon: 'fullscreen'
+            user_font_size: "32sp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.accent_color
+            tooltip_text: 'Maximizar'
+            tooltip_bg_color: app.theme_cls.accent_color
+            pos_hint: {"center_x":.2,"center_y":.2}
+            shift_y: 85
+            on_press: viewmodel.maximize_map()
+
+<TooltipMDIconButton@MDIconButton+MDTooltip>

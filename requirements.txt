@@ -1,8 +1,11 @@
 appdirs==1.4.4
+certifi==2021.5.30
 chardet==4.0.0
 distlib==0.3.2
 docutils==0.17.1
 filelock==3.0.12
+geographiclib==1.52
+geopy==2.2.0
 idna==2.10
 Kivy @ https://github.com/kivy/kivy/archive/master.zip
 kivy-deps.angle==0.3.0
@@ -13,6 +16,7 @@ Kivy-Garden==0.1.4
 kivy-garden.mapview==1.0.5
 kivymd==0.104.2
 Pillow==8.2.0
+plyer==2.0.0
 Pygments==2.9.0
 pypiwin32==223
 pywin32==301
