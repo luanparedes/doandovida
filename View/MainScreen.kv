@@ -14,8 +14,17 @@
 
 <CustomMap>
     id: viewmodel
-    MDIconButton:
-        id: size_map
-        icon: 'Assets/close.png'
-        pos_hint: {'center_x':.1, 'center_y':.1}
-        on_press: viewmodel.maximize_map()
+    FloatLayout:
+        TooltipMDIconButton:
+            id: size_map
+            icon: 'fullscreen'
+            user_font_size: "32sp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.accent_color
+            tooltip_text: 'Maximizar'
+            tooltip_bg_color: app.theme_cls.accent_color
+            pos_hint: {"center_x":.2,"center_y":.2}
+            shift_y: 85
+            on_press: viewmodel.maximize_map()
+
+<TooltipMDIconButton@MDIconButton+MDTooltip>

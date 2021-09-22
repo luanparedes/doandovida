@@ -1,7 +1,9 @@
+from Model.Dao import Dao
+from Presenter.DialogAlerts import WrongLoginDialog
 from kivy.properties import ObjectProperty
-from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen
-from kivymd.app import MDApp
+from kivymd.uix.dialog import MDDialog
+from kivymd.uix.button import MDFlatButton
 
 
 class LoginScreen(Screen):
@@ -12,8 +14,10 @@ class LoginScreen(Screen):
         self.name = 'login'
 
     def to_mainpage_screen(self):
-        print(self.parent.screen)
-        self.parent.screen = 'mainpage'
+        if Dao.verify_user(self, "luan.simas.paredes@gmail.com".lower(), ""):
+            self.parent.screen = 'mainpage'
+        else:
+            WrongLoginDialog()
 
     def to_newuser_screen(self):
         self.parent.screen = 'newuser'

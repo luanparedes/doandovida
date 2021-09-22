@@ -60,10 +60,12 @@ class CustomMap(MapView):
         if self.is_full_map:
             self.size_hint_y = .37
             self.is_full_map = False
-            self.size_button = '/Assets/maximizar.png'
+            self.ids.size_map.icon = 'fullscreen'
+            self.ids.size_map.tooltip_text = 'Maximizar'
         else:
             self.size_hint_y = 1
             self.is_full_map = True
             self.size_button = '/Assets/close.png'
-            self.ids.size_map.icon = '/Assets/maximizar.png'
+            self.ids.size_map.icon = 'close-circle'
+            self.ids.size_map.tooltip_text = 'Minimizar mapa'
 

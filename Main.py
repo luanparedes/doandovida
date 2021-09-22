@@ -13,6 +13,7 @@ Builder.load_file('View/MapScreen.kv')
 
 class MainProgram(MDApp):
     def build(self):
+        self.icon = 'Assets/logo.png'
         self.theme_cls.primary_palette = 'Red'
         self.theme_cls.accent_palette = 'Indigo'
         self.theme_cls.theme_style = 'Dark'
