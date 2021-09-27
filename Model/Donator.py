@@ -15,7 +15,7 @@ class Donator:
         self.adress.complement = ''
         self.adress.neighborhood = ''
         self.adress.city = ''
-        self.adress.estate = ''
+        self.adress.state = ''
         self.tel = ''
         self.cel = ''
         self.height = 0.00
