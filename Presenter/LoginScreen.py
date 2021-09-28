@@ -14,7 +14,7 @@ class LoginScreen(Screen):
         self.name = 'login'
 
     def to_mainpage_screen(self):
-        if Dao.verify_user(self, "luan.simas.paredes@gmail.com".lower(), ""):
+        if Dao.verify_user(self, "luan.simas.paredes@gmail.com".lower(), "Paredes@10102017"):
             self.parent.screen = 'mainpage'
         else:
             WrongLoginDialog()
