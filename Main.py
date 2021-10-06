@@ -1,7 +1,7 @@
 from kivymd.app import MDApp
-from Presenter.ScreenManagement import ScreenManagement
+from Controller.ScreenManagement import ScreenManagement
 from kivy.lang import Builder
-
+import os
 
 #Register KV files
 Builder.load_file('View/MainScreen.kv')
@@ -13,10 +13,14 @@ Builder.load_file('View/MapScreen.kv')
 
 class MainProgram(MDApp):
     def build(self):
+        self.title = 'Doando Vida - Ajude quem precisa!'
         self.icon = 'Assets/logo.png'
+        self.create_settings()
         self.theme_cls.primary_palette = 'Red'
         self.theme_cls.accent_palette = 'Indigo'
+        self.theme_cls.primary_hue = '300'
         self.theme_cls.theme_style = 'Dark'
+
         return ScreenManagement()
 
 

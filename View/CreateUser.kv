@@ -1,38 +1,42 @@
 <CreateUser>
     id: viewmodel
-    canvas.before:
-        Color:
-            rgb: (0,0,0)
-        Rectangle:
-            pos: self.pos
-            size: self.size
 
-    FloatLayout:
-        Label:
+    MDFloatLayout:
+        md_bg_color: app.theme_cls.bg_darkest
+        MDToolbar:
+	        size_hint: 1, .08
+	        pos_hint: {'center_x': .5, 'center_y': .96}
+	        title: 'Doando Vida'
+            elevation: 1
+            md_bg_color: app.theme_cls.accent_color
+            left_action_items: [["arrow-left", lambda x: viewmodel.to_login_screen()]]
+        MDLabel:
             text: 'CADASTRO DE USUÁRIO'
             font_size: 22
             size_hint_x: .5
-            pos_hint: {'center_x':.5, 'center_y':.93}
+            halign: 'center'
+            pos_hint: {'center_x':.5, 'center_y':.85}
         MDRaisedButton:
             text: 'CADASTRAR'
             font_size: 8
             size_hint: .70,.07
-            pos_hint: {'center_x':.5, 'center_y':.05}
+            size_hint_max_x: 300
+            size_hint_max_y: 50
+            md_bg_color: app.theme_cls.accent_color
+            pos_hint: {'center_x':.5, 'center_y':.08}
             on_release: viewmodel.create_user_action()
-        MDIconButton:
-            text: 'Back'
-            icon: 'arrow-left-bold-circle'
-            font_size: 8
-            pos_hint: {'center_x':.05, 'center_y':.5}
-            on_press: viewmodel.to_login_screen()
         ScrollView:
-            pos_hint: {'center_x':.5, 'center_y':.50}
+            pos_hint: {'center_x':.5, 'center_y':.45}
             size_hint_x: .70
-            size_hint_y: .70
+            size_hint_y: .62
+            size_hint_max_x: 300
+            padding_x:[20,0]
             GridLayout:
                 rows: 18
                 size_hint: 1, None
                 spacing: 17
+                halign: 'center'
+                size_hint_max_x: 300
                 height: self.minimum_height
                 width: self.minimum_width
                 MDTextField:
@@ -47,6 +51,7 @@
                     hint_text: "Senha"
                     helper_text: "Digite aqui a sua senha"
                     helper_text_mode: "persistent"
+                    on_focus: viewmodel.on_verify_email()
                 MDTextField:
                     id: confirm
                     size_hint: 1, None

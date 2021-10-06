@@ -2,28 +2,16 @@
     id: viewmodel
     FloatLayout:
         MDToolbar:
+            id: toolbar
 	        size_hint: 1, .08
 	        pos_hint: {'center_x': .5, 'center_y': .96}
 	        title: 'Doando Vida'
-            elevation: 20
+            elevation: 1
             md_bg_color: app.theme_cls.accent_color
-            left_action_items: [["menu", lambda x: viewmodel.open_menu()]]
+            left_action_items: [["menu", lambda x: viewmodel.open_menu(x)]]
 
         BoxLayout:
-            size_hint: 1, .45
-            pos_hint: {"center_x":.5, "center_y":.5}
-            MDSwiper:
-                MDSwiperItem:
-                    size_hint: 1, 1
-                    FitImage:
-                        source: "Assets/logo.png"
-                        radius: [20,]
 
-                MDSwiperItem:
-                    size_hint: 1, .3
-                    FitImage:
-                        source: "Assets/logo.png"
-                        radius: [20,]
 
     BoxLayout:
         id: mapbox

@@ -1,5 +1,6 @@
 from Model.Dao import Dao
 from Model.Donator import Donator
+from Controller.DialogAlerts import AlreadyHaveEmailDialog
 from kivy.uix.screenmanager import Screen
 
 
@@ -20,7 +21,7 @@ class CreateUser(Screen):
 
     def create_user(self):
         self.user.email = self.ids.email.text
-        self.user.password = self.ids.password.text #if self.ids.password.text == self.ids.confirm.text else 'null'
+        self.user.password = self.ids.password.text
         self.user.name = self.ids.name.text
         self.user.cpf = self.ids.cpf.text
         self.user.rg = self.ids.rg.text
@@ -36,3 +37,8 @@ class CreateUser(Screen):
         self.user.height = float(self.ids.myheight.text)
         self.user.weight = int(self.ids.myweight.text)
         self.user.blood_type = self.ids.blood.text
+
+    def on_verify_email(self):
+        if self.ids.email.text != '':
+            if Dao.verify_email(self, self.ids.email.text):
+                AlreadyHaveEmailDialog()

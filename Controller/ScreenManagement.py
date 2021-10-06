@@ -1,8 +1,8 @@
-from Presenter.LoginScreen import LoginScreen
-from Presenter.MainScreen import MainScreen
-from Presenter.CreateUser import CreateUser
-from Presenter.Settings import Settings
-from Presenter.MapScreen import MapScreen
+from Controller.LoginScreen import LoginScreen
+from Controller.MainScreen import MainScreen
+from Controller.CreateUser import CreateUser
+from Controller.Settings import Settings
+from Controller.MapScreen import MapScreen
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
 from kivy.properties import StringProperty, ObjectProperty
 
