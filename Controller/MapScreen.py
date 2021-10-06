@@ -1,4 +1,4 @@
-from Presenter.CustomMap import CustomMap
+from Controller.CustomMap import CustomMap
 from kivy.uix.screenmanager import Screen
 
 

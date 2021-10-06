@@ -1,7 +1,7 @@
-from Presenter.GeoLocator import GeoLocator
-from Presenter.CustomGPS import CustomGPS
-from Presenter.Enums import OS
-from Presenter.Enums import MarkMap
+from Controller.GeoLocator import GeoLocator
+from Controller.CustomGPS import CustomGPS
+from Controller.Enums import OS
+from Controller.Enums import MarkMap
 from kivy_garden.mapview import MapView, MapMarker
 from kivy.properties import StringProperty
 from platform import system
