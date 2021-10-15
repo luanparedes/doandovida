@@ -1,14 +1,15 @@
 from kivymd.app import MDApp
 from Controller.ScreenManagement import ScreenManagement
 from kivy.lang import Builder
-import os
 
-#Register KV files
+__version__ = '1.0.1510'
+
+# Register KV files
 Builder.load_file('View/MainScreen.kv')
 Builder.load_file('View/LoginScreen.kv')
 Builder.load_file('View/CreateUser.kv')
 Builder.load_file('View/Settings.kv')
-Builder.load_file('View/MapScreen.kv')
+Builder.load_file('View/InfoBloodCenterCard.kv')
 
 
 class MainProgram(MDApp):

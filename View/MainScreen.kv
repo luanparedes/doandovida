@@ -1,5 +1,5 @@
 <MainScreen>
-    id: viewmodel
+    id: main_screen_viewmodel
     FloatLayout:
         MDToolbar:
             id: toolbar
@@ -8,17 +8,14 @@
 	        title: 'Doando Vida'
             elevation: 1
             md_bg_color: app.theme_cls.accent_color
-            left_action_items: [["menu", lambda x: viewmodel.open_menu(x)]]
+            left_action_items: [["menu", lambda x: main_screen_viewmodel.open_menu(x)]]
 
-        BoxLayout:
-
-
-    BoxLayout:
+    FloatLayout:
         id: mapbox
         size_hint: 1, .92
 
 <CustomMap>
-    id: viewmodel
+    id: map_viewmodel
     FloatLayout:
         TooltipMDIconButton:
             id: size_map
@@ -30,6 +27,6 @@
             tooltip_bg_color: app.theme_cls.accent_color
             pos_hint: {"center_x":.2,"center_y":.2}
             shift_y: 85
-            on_press: viewmodel.maximize_map()
+            on_press: map_viewmodel.maximize_map()
 
 <TooltipMDIconButton@MDIconButton+MDTooltip>

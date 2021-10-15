@@ -1,9 +1,9 @@
 from Model.Adress import Adress
 
 class Donator:
-    adress = Adress()
-
     def __init__(self):
+        self.adress = Adress()
+
         self.email = ''
         self.password = ''
         self.name = ''
