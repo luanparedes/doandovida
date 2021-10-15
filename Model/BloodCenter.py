@@ -1,9 +1,10 @@
 from Model.Adress import Adress
 
-class BloodCenter:
-    adress = Adress()
 
+class BloodCenter:
     def __init__(self):
+        self.adress = Adress()
+
         self.email = ''
         self.password = ''
         self.company = ''
@@ -17,3 +18,4 @@ class BloodCenter:
         self.adress.state = ''
         self.tel = ''
         self.tel2 = ''
+        self.next_date = ''

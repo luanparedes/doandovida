@@ -39,4 +39,3 @@ class ScreenManagement(ScreenManager):
     def action_swipe_screen(self, obj, value):
         print(self.screen)
         self.current = value
-
