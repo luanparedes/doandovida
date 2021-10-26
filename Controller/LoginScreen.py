@@ -38,4 +38,3 @@ class LoginScreen(Screen):
         except:
             self.last_login.text = ""
             self.last_pass.text = ""
-

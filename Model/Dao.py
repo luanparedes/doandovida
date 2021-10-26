@@ -173,3 +173,29 @@ class Dao:
         cursor.execute(self.sql)
 
         return cursor.fetchone()[0]
+
+    def get_saved_config(self):
+        conn = sqlite3.connect('doandovida.db')
+        cursor = conn.cursor()
+
+        self.sql = 'SELECT * FROM config'
+
+        cursor.execute(self.sql)
+
+        return cursor.fetchone()
+
+    def save_system_color(self, system_color):
+        conn = sqlite3.connect('doandovida.db')
+        cursor = conn.cursor()
+
+        self.sql = f'UPDATE config SET system_color = "{system_color}"'
+
+        return cursor.execute(self.sql)
+
+    def save_theme_color(self, theme):
+        conn = sqlite3.connect('doandovida.db')
+        cursor = conn.cursor()
+
+        self.sql = f'UPDATE config SET theme_color = "{theme}"'
+
+        return cursor.execute(self.sql)

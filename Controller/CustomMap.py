@@ -7,60 +7,58 @@ from Model.BloodCenter import BloodCenter
 from Model.Donator import Donator
 from Model.Dao import Dao
 from kivy_garden.mapview import MapView, MapMarker
-from kivy.properties import StringProperty
-from platform import system
+from kivy.properties import StringProperty, ObjectProperty
+from kivy.clock import Clock
 
 
 class CustomMap(MapView):
-    donator_model = Donator()
-    center_model = BloodCenter()
-
-    centers_list = []
-    markers = []
-    is_full_map = False
-
     # Properties
     size_button = StringProperty('/Assets/maximizar.png')
 
     def __init__(self):
         super(CustomMap, self).__init__()
 
+        # Variables
+        self.donator_model = Donator()
+        self.center_model = BloodCenter()
+
+        self.centers_list = []
+        self.markers = []
+        self.is_full_map = False
+        self.is_init = True
+
         self.geo_locator = GeoLocator()
         self.dao = Dao()
 
-        self.get_bloodcenters()
-        self.get_all_address()
+        if OS.is_android.value or OS.is_ios.value:
+            self.gps = CustomGPS()
+            Clock.schedule_interval(self.on_update_gps, 0)
+        else:
+            self.map_initial_position()
 
-        self.verify_os()
+        self.addressing_bloodcenters()
+        self.set_user_to_markers()
+        self.set_markers_to_map()
 
         self.zoom = 15
         self.map_source = "osm"
         self.size_hint = (1, .37)
 
-    def get_markers_to_map(self):
-        self.markers.append(MapMarker(lat=self.lat, lon=self.lon, source=MarkMap.house.value))
-        for mark in self.markers:
-            self.add_marker(mark)
-
-    def get_my_address(self):
+    def map_initial_position(self):
         self.geo_locator.set_location(self.dao.get_address())
         self.lat = self.geo_locator.location.latitude
         self.lon = self.geo_locator.location.longitude
 
-        self.get_markers_to_map()
+    def set_user_to_markers(self):
+        if OS.is_android.value or OS.is_ios.value:
+            self.add_marker(self.gps.mark)
+        else:
+            self.markers.append(MapMarker(lat=self.lat, lon=self.lon, source=MarkMap.house.value))
 
-    def get_geolocator(self, address, model):
-        self.geo_locator.set_location(address)
-        self.markers.append(CustomMapMarker(model, lat=self.geo_locator.location.latitude,
-                                            lon=self.geo_locator.location.longitude,
-                                            source=MarkMap.hospital.value,
-                                            ))
-
-    def get_bloodcenters(self):
-        self.centers_list = self.dao.get_all_bloodcenters()
-
-    def get_all_address(self):
+    def addressing_bloodcenters(self):
         address = ''
+
+        self.get_bloodcenters_from_db()
 
         for center in self.centers_list:
             address = address + f'{center.adress.street}, '
@@ -68,18 +66,31 @@ class CustomMap(MapView):
             address = address + f'{center.adress.city}, '
             address = address + f'{center.adress.state}'
 
-            self.get_geolocator(address, center)
+            self.set_bloodcenters_markers(address, center)
             address = ''
 
-    def verify_os(self):
-        # Se não for Android ou IOS, mostrará o endereço da casa do usuário
-        if system() != OS.android.value and system() != OS.ios.value:
-            self.get_my_address()
+    def get_bloodcenters_from_db(self):
+        self.centers_list = self.dao.get_all_bloodcenters()
 
-        # Sendo Android, mostra o local onde o usuário está pelo GPS
-        else:
-            self.gps = CustomGPS()
-            self.coordinates = self.gps.on_location()
+    def set_bloodcenters_markers(self, address, model):
+        self.geo_locator.set_location(address)
+        self.markers.append(CustomMapMarker(model, lat=self.geo_locator.location.latitude,
+                                            lon=self.geo_locator.location.longitude, source=MarkMap.hospital.value,))
+
+    def set_markers_to_map(self):
+        for marker in self.markers:
+            self.add_marker(marker)
+
+    # Actions
+    def on_update_gps(self, value):
+        self.lat = self.gps.lat
+        self.lon = self.gps.lon
+
+        if self.is_init and self.lat != 0:
+            self.center_on(self.lat, self.lon)
+            self.is_init = False
+
+        self.do_update(self)
 
     def maximize_map(self):
         if self.is_full_map:
@@ -90,7 +101,5 @@ class CustomMap(MapView):
         else:
             self.size_hint_y = 1
             self.is_full_map = True
-            self.size_button = '/Assets/close.png'
             self.ids.size_map.icon = 'close-circle'
             self.ids.size_map.tooltip_text = 'Minimizar mapa'
-

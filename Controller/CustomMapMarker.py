@@ -1,5 +1,4 @@
 from Controller.InfoBloodCenterCard import InfoBloodCenterCard
-from Model.BloodCenter import BloodCenter
 from kivy_garden.mapview import MapMarker
 
 

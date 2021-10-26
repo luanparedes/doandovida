@@ -22,12 +22,10 @@
             text: login_user.text
             hint_text: "Login"
             icon_left: 'account'
-            icon_color: app.theme_cls.primary_color
-            normal_color: app.theme_cls.primary_color
-            color_active: app.theme_cls.primary_color
+            icon_color: app.theme_cls.accent_color
+            normal_color: app.theme_cls.accent_color
+            color_active: app.theme_cls.accent_color
             size_hint: .8,.05
-            size_hint_max_y: 40
-            size_hint_max_x: 300
             pos_hint: {'center_x':.5, 'center_y':.5}
         MDTextFieldRound:
             id: login_pass
@@ -35,12 +33,10 @@
             text: login_pass.text
             password: True
             icon_left: 'key-variant'
-            icon_color: app.theme_cls.primary_color
-            normal_color: app.theme_cls.primary_color
-            color_active: app.theme_cls.primary_color
+            icon_color: app.theme_cls.accent_color
+            normal_color: app.theme_cls.accent_color
+            color_active: app.theme_cls.accent_color
             size_hint: .8,.05
-            size_hint_max_y: 40
-            size_hint_max_x: 300
             pos_hint: {'center_x':.5, 'center_y':.4}
         MDIconButton:
             id: btn_enter
