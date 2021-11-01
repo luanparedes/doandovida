@@ -7,7 +7,7 @@ title = Doando Vida
 package.name = doandovida
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = com.doandovida
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3, kivy, kivymd, sqlite3, geopy, kivy-garden.mapview, plyer, requests, virtualenv, pillow, urllib3
+requirements = python3, kivy, kivymd, sqlite3, geopy, kivy-garden.mapview, plyer, requests, virtualenv, pillow, urllib3, ffpyplayer
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -49,7 +49,7 @@ requirements = python3, kivy, kivymd, sqlite3, geopy, kivy-garden.mapview, plyer
 presplash.filename = %(source.dir)s/Assets/logo.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/Assets/logo.png
+icon.filename = %(source.dir)s/Assets/app_icon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait

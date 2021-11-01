@@ -1,0 +1,53 @@
+<LoginScreen>
+    id: viewmodel
+    last_login: login_user
+    last_pass: login_pass
+
+    orientation: 'vertical'
+    spacing: 30
+    canvas.before:
+        Color:
+            rgb: (0/255,128/255,128/255)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        size_hint: 1, .4
+        pos_hint: {'center_x': .5, 'center_y':0.80}
+        Image:
+            source: 'Assets/logo.png'
+    FloatLayout:
+        MDTextFieldRound:
+            id: login_user
+            text: login_user.text
+            hint_text: "Login"
+            icon_left: 'account'
+            icon_color: app.theme_cls.primary_color
+            icon_left_color: app.theme_cls.primary_color
+            normal_color: app.theme_cls.accent_color
+            color_active: app.theme_cls.accent_color
+            size_hint: .8,.05
+            pos_hint: {'center_x':.5, 'center_y':.5}
+        MDTextFieldRound:
+            id: login_pass
+            hint_text: "Senha"
+            text: login_pass.text
+            password: True
+            icon_left: 'key-variant'
+            icon_left_color: app.theme_cls.primary_color
+            normal_color: app.theme_cls.accent_color
+            color_active: app.theme_cls.accent_color
+            size_hint: .8,.05
+            pos_hint: {'center_x':.5, 'center_y':.4}
+        MDIconButton:
+            id: btn_enter
+            icon: 'Assets/login_button.png'
+            pos_hint: {'center_x':.5, 'center_y':.24}
+            on_press: viewmodel.to_mainpage_screen()
+        Label:
+            id: lbl_hl
+            text: 'Novo usuário?\n [b][ref=Cadastre-se]Cadastre-se![/ref][/b]'
+            markup: True
+            size_hint: .8,.05
+            pos_hint: {'center_x':.5, 'center_y':.14}
+            on_ref_press: viewmodel.to_newuser_screen()

@@ -1,0 +1,34 @@
+#:import VideoPlayer controller.videoplayer.VideoPlayer
+
+<AboutDonationPage>
+    id: about_viewmodel
+
+    ScrollView:
+        pos_hint: {'center_x':.5, 'center_y':.5}
+        size_hint: 1, 1
+        padding_x:[20,0]
+
+        GridLayout:
+            cols: 1
+            height: self.minimum_height
+            width: self.minimum_width
+            size_hint: None, None
+            spacing: 10
+
+            Image:
+                size_hint: None, None
+                height: 1500
+                width: root.width
+                source: 'Assets/requirements.png'
+                allow_stretch: True
+                keep_ratio: False
+
+            FloatLayout:
+                orientation: 'vertical'
+                size_hint: None, None
+                height: 600
+                width: root.width
+                VideoPlayer:
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    size_hint: .9, 1
+                    source: 'Assets/Videos/hemominas.mp4'
