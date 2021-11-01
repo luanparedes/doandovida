@@ -1,0 +1,38 @@
+<Settings>
+    id: settings_viewmodel
+
+    MDFloatLayout:
+        MDToolbar:
+	        size_hint: 1, .08
+	        pos_hint: {'center_x': .5, 'center_y': .96}
+	        title: 'Configurações'
+            elevation: 1
+            left_action_items: [["arrow-left", lambda x: settings_viewmodel.to_main_screen()]]
+
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, 'center_y': .82}
+            size_hint: .95, .14
+            padding: 12,12,12,12
+            radius: 18
+            md_bg_color: .3,.3,.3,.3
+
+            Label:
+                pos_hint: {'center_x': .14, 'center_y': .78}
+                text: "Sistema de cores"
+                font_size: root.system_label_size
+
+            MDFillRoundFlatButton:
+                text: 'Escolher temas...'
+                font_size: root.button_text_size
+                size_hint: root.button_size
+                pos_hint: {'center_x': .14, 'center_y': .32}
+                on_release: root.show_theme_picker(self)
+
+        MDLabel:
+            text: '[u][ref=Ministério da Saúde]Ministério da Saúde[/ref][u]'
+            pos_hint: {'center_x': .55, 'center_y': .7}
+            theme_text_color: 'Custom'
+            text_color: 0,0,1,1
+            markup: True
+            font_size: root.hyperlink_size
+            on_ref_press: root.open_web_saude()
