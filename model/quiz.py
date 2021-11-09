@@ -28,11 +28,14 @@ class Quiz:
             self.all_questions.append([self.question, self.answer1, self.answer2, self.answer3, self.right_answer])
 
     def show_next_question(self):
+        if len(self.showed_before) == len(self.all_questions):
+            return None
+
         number = randint(0, len(self.all_questions)-1)
 
         if number in self.showed_before:
             self.show_next_question()
 
         self.showed_before.append(number)
-        
+
         return self.all_questions[number]

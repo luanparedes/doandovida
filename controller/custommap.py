@@ -1,3 +1,4 @@
+from controller.basescreen import BaseScreen
 from controller.geolocator import GeoLocator
 from controller.customgps import CustomGPS
 from controller.custommapmarker import CustomMapMarker
@@ -11,14 +12,13 @@ from kivy_garden.mapview import MapView, MapMarker
 from kivy.clock import Clock
 
 
-class CustomMap(MDBottomNavigationItem):
+class CustomMap(MDBottomNavigationItem, BaseScreen):
     def __init__(self, **kwargs):
         super(CustomMap, self).__init__(**kwargs)
 
         self.map = MapView()
         self.add_widget(self.map)
 
-        self.donator_model = Donator()
         self.center_model = BloodCenter()
 
         self.centers_list = []

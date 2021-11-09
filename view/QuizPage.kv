@@ -1,19 +1,61 @@
 <QuizPage>
     id: quiz_viewmodel
 
-    FloatLayout:
+    MDLabel:
+        text: 'Quiz Game'
+        font_size: 32
+        size_hint_x: .8
+        pos_hint: {'center_x': .5, 'center_y': .88}
+        halign: 'center'
+
+    MDLabel:
+        text: 'Pontos'
+        size_hint: None, None
+        pos_hint: {'center_x': .975, 'center_y': .9}
+
+    MDLabel:
+        text: root.quiz_points
+        size_hint: None, None
+        size: 50, 100
+        pos_hint: {'center_x': .975, 'center_y': .864}
+
+    MDIcon:
+        icon: 'heart-flash'
+        size_hint: None, None
+        pos_hint: {'center_x': .985, 'center_y': .8}
+
+    MDLabel:
+        text: root.energy
+        size_hint: None, None
+        size: 50,100
+        pos_hint: {'center_x': .985, 'center_y': .8}
+
+    MDGridLayout:
+        id: quiz_game
+        cols: 1
+        row_force_default: True
+        row_default_height: 70
+        size_hint: .8, .45
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        spacing: [10, 10]
+        radius: 16
+        md_bg_color: .0, .42, .42, 1
+
         MDLabel:
             text: root.question
             font_size: root.question_size
-            pos_hint: {'center_x': .6, 'center_y': .85}
+            halign: 'center'
 
         GridLayout:
             cols: 2
-            size_hint: .7, .5
-            pos_hint: {'center_x': .5, 'center_y': .5}
+            row_force_default: True
+            row_default_height: 40
+            spacing: [18, 0]
 
             CheckBox:
                 group: 'question'
+                width: 40
+                size_hint_x: None
 
             MDLabel:
                 text: root.answer1
@@ -21,6 +63,8 @@
 
             CheckBox:
                 group: 'question'
+                width: 40
+                size_hint_x: None
 
             MDLabel:
                 text: root.answer2
@@ -28,14 +72,42 @@
 
             CheckBox:
                 group: 'question'
+                width: 40
+                size_hint_x: None
 
             MDLabel:
                 text: root.answer3
                 font_size: root.answers_size
 
-        MDRaisedButton:
-            text: 'Responder'
-            size_hint: .8, .1
-            pos_hint: {'center_x': .5, 'center_y': .1}
-            font_size: 24
-            on_release: root.show_answer
+    MDFillRoundFlatButton:
+        id: btn_answer
+        text: 'Responder'
+        font_size: 24
+        size_hint: .8, .1
+        pos_hint: {'center_x': .5, 'center_y': .11}
+        on_release: root.show_question()
+
+    MDBoxLayout:
+        id: get_started
+        cols: 1
+        row_force_default: True
+        row_default_height: 70
+        size_hint: .8, .95
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        spacing: [10, 10]
+        radius: 16
+        md_bg_color: .31, .0, .0, 1
+
+        Image:
+            size_hint: 1, 1
+            source: 'assets/blood_quiz.png'
+            allow_stretch: True
+            keep_ratio: False
+            radius: 16
+
+    MDFillRoundFlatButton:
+        id: btn_get_started
+        text: 'Começar'
+        size_hint: .33, .1
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        on_release: root.get_started(self)
