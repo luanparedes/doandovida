@@ -4,14 +4,14 @@ from platform import system
 
 
 class BloodType(Enum):
-    a_positive = 0
-    a_negative = 1
-    b_positive = 2
-    b_negative = 3
-    ab_positive = 4
-    ab_negative = 5
-    o_positive = 6
-    o_negative = 7
+    a_positive = 'A+'
+    a_negative = 'A-'
+    b_positive = 'B+'
+    b_negative = 'B-'
+    ab_positive = 'AB+'
+    ab_negative = 'AB-'
+    o_positive = 'O+'
+    o_negative = 'O-'
 
 
 class Screens(Enum):
@@ -30,7 +30,7 @@ class OS(Enum):
 
 
 class MarkMap(Enum):
-    hospital = 'Assets/bloodcenter.png'
-    person = 'Assets/gps_user.png'
-    house = 'Assets/house.png'
-    emergency = 'Assets/warning.png'
+    hospital = 'assets/bloodcenter.png'
+    person = 'assets/gps_user.png'
+    house = 'assets/house.png'
+    emergency = 'assets/warning.png'

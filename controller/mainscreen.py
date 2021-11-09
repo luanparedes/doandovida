@@ -1,15 +1,12 @@
+from controller.basescreen import BaseScreen
 from controller.aboutcard import AboutCard
 from controller.custommap import CustomMap
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.menu import MDDropdownMenu
-from kivy.properties import StringProperty
 from kivy.metrics import dp
 
 
-class MainScreen(Screen):
-    #Properties
-    quiz_points = StringProperty()
-
+class MainScreen(Screen, BaseScreen):
     menu_items = []
     menu = ''
 

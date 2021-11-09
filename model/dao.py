@@ -1,4 +1,3 @@
-from model.donator import Donator
 from model.bloodcenter import BloodCenter
 import sqlite3
 
@@ -6,7 +5,6 @@ actual_login = ''
 
 
 class Dao:
-    donator_model = Donator()
     center_model = BloodCenter()
 
     sql = ''
@@ -14,7 +12,6 @@ class Dao:
 
     def __init__(self):
         global actual_login
-
         actual_login = self.initial_login()
 
     def verify_user(self, email, password):
@@ -209,3 +206,13 @@ class Dao:
         cursor.execute(self.sql)
 
         return cursor.fetchall()
+
+    def take_all_user_info(self):
+        conn = sqlite3.connect('doandovida.db')
+        cursor = conn.cursor()
+
+        self.sql = f'SELECT * FROM donator WHERE email = "{actual_login}"'
+
+        cursor.execute(self.sql)
+
+        return cursor.fetchone()
